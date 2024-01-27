@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "doggo"
 include(":app")
- 
+include(":commons")

@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "doggo"
 include(":app")
 include(":commons")
+include(":features:dogsList")
+include(":features:dogList")

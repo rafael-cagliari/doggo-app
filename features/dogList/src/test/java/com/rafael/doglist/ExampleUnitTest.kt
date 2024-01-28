@@ -1,4 +1,4 @@
-package com.rafael.doggoApp
+package com.rafael.doglist
 
 import org.junit.Test
 

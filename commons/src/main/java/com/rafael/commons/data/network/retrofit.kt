@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val commonsDataNetworkModule = DI.Module("commonDataNetwork") {
     bind<Retrofit>() with singleton {
         Retrofit.Builder()
-            .baseUrl("https://api.thedogapi.com/v1/")
+            .baseUrl("https://api.thedogapi.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

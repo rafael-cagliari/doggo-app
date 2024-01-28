@@ -9,7 +9,6 @@ class ApplicationStarter :Application(), DIAware {
 
     private val appGeneralModule = DI.Module(name = "appGeneralModule") {
         import(commonsDataNetworkModule)
-        import(testModule)
     }
 
     override val di by DI.lazy {

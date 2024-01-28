@@ -50,6 +50,7 @@ class DogListActivity : ComponentActivity(), DIAware {
 
         setContent {
             // A surface container using the 'background' color from the theme
+
             Surface(
                 modifier = Modifier.fillMaxSize().clickable { lifecycleScope.launch(Dispatchers.IO) {
                     try {

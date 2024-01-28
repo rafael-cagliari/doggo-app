@@ -7,6 +7,15 @@ android {
     namespace = "com.rafael.commons"
     compileSdk = 34
 
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+
+
     defaultConfig {
         minSdk = 25
 
@@ -42,5 +51,6 @@ dependencies {
     api("com.squareup.retrofit2:converter-gson:2.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    api(platform("androidx.compose:compose-bom:2023.08.00"))
+    api("androidx.compose.material3:material3")
 }

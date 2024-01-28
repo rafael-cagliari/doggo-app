@@ -1,4 +1,4 @@
-package com.rafael.doggoApp.ui.theme
+package com.rafael.commons.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

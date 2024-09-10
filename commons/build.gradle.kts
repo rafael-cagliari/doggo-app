@@ -48,6 +48,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("de.jensklingenberg.ktorfit:ktorfit-lib:2.1.0")
+    implementation("io.ktor:ktor-client-okhttp:2.3.4")
     api("org.kodein.di:kodein-di:7.21.1")
     api("org.kodein.di:kodein-di-framework-android-x:7.21.1")
     testImplementation("junit:junit:4.13.2")

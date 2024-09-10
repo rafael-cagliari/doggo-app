@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+    id("de.jensklingenberg.ktorfit") version "1.11.1"
 }
 
 android {
@@ -45,6 +47,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.5")
     implementation("androidx.activity:activity-compose:1.9.2")
+    implementation("de.jensklingenberg.ktorfit:ktorfit-lib:2.1.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation(platform("androidx.compose:compose-bom:2024.09.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")

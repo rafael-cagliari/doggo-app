@@ -1,8 +1,9 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version "2.0.20-1.0.24"
-    id("de.jensklingenberg.ktorfit") version "1.11.1"
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.ktorfit)
 }
 
 android {
@@ -12,11 +13,6 @@ android {
     buildFeatures {
         compose = true
     }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
-
 
     defaultConfig {
         minSdk = 25
@@ -44,15 +40,14 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("de.jensklingenberg.ktorfit:ktorfit-lib:2.1.0")
-    implementation("io.ktor:ktor-client-okhttp:2.3.4")
-    api("org.kodein.di:kodein-di:7.21.1")
-    api("org.kodein.di:kodein-di-framework-android-x:7.21.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    api(platform("androidx.compose:compose-bom:2024.09.00"))
-    api("androidx.compose.material3:material3")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.ktorfit.lib.light)
+    api(libs.kodein.di)
+    api(libs.kodein.di.framework.android.x)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    api(platform(libs.androidx.compose.bom))
+    api(libs.androidx.material3)
 }

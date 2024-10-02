@@ -2,6 +2,7 @@ package com.rafael.doglist.di
 
 import android.app.Activity
 import com.rafael.doglist.data.api.DogsListApi
+import com.rafael.doglist.ui.DogsListViewModel
 import de.jensklingenberg.ktorfit.Ktorfit
 import org.kodein.di.DI
 import org.kodein.di.bind
@@ -14,4 +15,11 @@ val dogListModule = DI.Module("dogListModule") {
     bind<DogsListApi> { scoped(WeakContextScope.of<Activity>()).singleton {
         instance<Ktorfit>().create()
     }
-} }
+}
+
+    bind<DogsListViewModel> {
+        scoped(WeakContextScope.of<Activity>()).singleton{
+            DogsListViewModel(api = instance())
+        }
+    }
+}

@@ -3,17 +3,22 @@ package com.rafael.doggoApp
 import android.app.Application
 import com.rafael.commons.data.di.commonsDataNetworkModule
 import com.rafael.doglist.di.dogListModule
-import org.kodein.di.DI
-import org.kodein.di.DIAware
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.GlobalContext.startKoin
 
-class ApplicationStarter :Application(), DIAware {
 
-    private val appGeneralModule = DI.Module(name = "appGeneralModule") {
-        import(commonsDataNetworkModule)
-        import(dogListModule)
-    }
+class ApplicationStarter :Application() {
 
-    override val di by DI.lazy {
-        import(appGeneralModule)
+    override fun onCreate() {
+        super.onCreate()
+        startKoin{
+            androidLogger()
+            androidContext(this@ApplicationStarter)
+            modules(
+                commonsDataNetworkModule,
+                dogListModule
+            )
+        }
     }
 }

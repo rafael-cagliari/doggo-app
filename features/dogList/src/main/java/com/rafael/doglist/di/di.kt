@@ -1,25 +1,14 @@
 package com.rafael.doglist.di
-
-import android.app.Activity
 import com.rafael.doglist.data.api.DogsListApi
 import com.rafael.doglist.ui.DogsListViewModel
 import de.jensklingenberg.ktorfit.Ktorfit
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.bindings.WeakContextScope
-import org.kodein.di.instance
-import org.kodein.di.scoped
-import org.kodein.di.singleton
+import org.koin.core.module.dsl.viewModel
+import org.koin.dsl.module
 
-val dogListModule = DI.Module("dogListModule") {
-    bind<DogsListApi> { scoped(WeakContextScope.of<Activity>()).singleton {
-        instance<Ktorfit>().create()
+val dogListModule = module {
+    single<DogsListApi> {
+        get<Ktorfit>().create()
     }
-}
 
-    bind<DogsListViewModel> {
-        scoped(WeakContextScope.of<Activity>()).singleton{
-            DogsListViewModel(api = instance())
-        }
-    }
+    viewModel { DogsListViewModel(api = get<DogsListApi>()) }
 }
